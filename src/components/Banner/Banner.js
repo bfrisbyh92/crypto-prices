@@ -1,5 +1,6 @@
 import { Container, makeStyles, Typography } from '@material-ui/core';
 import React from 'react'
+import Carousel from './Carousel';
 
 let bannerBackground = require('../../Assets/banner2.jpeg')
 
@@ -37,6 +38,7 @@ const Banner = () => {
                     fontWeight: "normal",
                     marginBottom: 15,
                     fontFamily: 'Luxurious Script',
+                    fontSize: "10vh",
                 }}
             >
                 Crypto Hunter
@@ -47,11 +49,14 @@ const Banner = () => {
                         color: "darkgrey",
                         textTransform: 'capitalize',
                         fontFamily: 'Montserrat',
+                        marginBottom: 10,
+                        fontSize: "2vw",
                     }}
                 >
             Get all the Info regarding your favorite Crypto
                 </Typography>
         </div>
+            <Carousel />
     </Container>
     </div>
   )
