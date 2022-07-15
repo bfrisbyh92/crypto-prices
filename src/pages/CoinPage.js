@@ -75,7 +75,8 @@ const CoinPage = () => {
   console.log(coin);
 
   useEffect(() => {
-    fetchCoin();
+    fetchCoin()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
   const classes = useStyles();
