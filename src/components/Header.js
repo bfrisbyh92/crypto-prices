@@ -55,7 +55,7 @@ export const Header = () => {
       onChange={(event) => setCurrency(event.target.value)}
     >
       <MenuItem value={"USD"}>USD</MenuItem>
-      <MenuItem value={"INR"}>INR</MenuItem>
+      <MenuItem value={"ETH"}>ETH</MenuItem>
     </Select>
         </Toolbar>
       </Container>
