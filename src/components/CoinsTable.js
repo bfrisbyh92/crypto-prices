@@ -26,8 +26,8 @@ export function numberWithCommas(x) {
 }
 
 export default function CoinsTable() {
-  const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
 
@@ -124,11 +124,12 @@ export default function CoinsTable() {
               <TableBody>
                 {handleSearch()
                   .slice((page - 1) * 10, (page - 1) * 10 + 10)
+                  // ^^^ from 0-10 and every following page is also 10
                   .map((row) => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
                       <TableRow
-                        onClick={() => navigate.push(`/coins/${row.id}`)}
+                        onClick={() => navigate(`/coins/${row.id}`, { replace: true } )}
                         className={classes.row}
                         key={row.name}
                       >
