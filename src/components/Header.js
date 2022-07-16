@@ -43,8 +43,9 @@ export const Header = () => {
             variant="h6" 
             onClick={() => navigate("/", { replace: true })}
           className={classes.title}>
-            Crypto Info
+            Crypto Home
           </Typography>
+          <Typography style={{ marginRight: '5vh',  }}>@BrendanFrisby2022</Typography>
     <Select variant="outlined"
       style={{
         width: 100,

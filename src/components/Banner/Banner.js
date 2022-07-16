@@ -37,7 +37,7 @@ const Banner = () => {
                 style={{
                     fontWeight: "normal",
                     marginBottom: 15,
-                    fontFamily: 'Luxurious Script',
+                    fontFamily: 'Edu VIC WA NT Beginner',
                     fontSize: "10vh",
                 }}
             >
@@ -54,6 +54,19 @@ const Banner = () => {
                     }}
                 >
             Get all the Info regarding your favorite Crypto
+                </Typography>
+
+                <Typography
+                    variant='subtitle2'
+                    style={{
+                        color: "gold",
+                        textTransform: 'capitalize',
+                        fontFamily: 'Montserrat',
+                        marginBottom: 10,
+                        fontSize: "2vw",
+                    }}
+                >
+                Top 10
                 </Typography>
         </div>
             <Carousel />
