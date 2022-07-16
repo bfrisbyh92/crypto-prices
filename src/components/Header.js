@@ -45,7 +45,7 @@ export const Header = () => {
           className={classes.title}>
             Crypto Home
           </Typography>
-          <Typography style={{ marginRight: '5vh',  }}>@BrendanFrisby2022</Typography>
+          <Typography style={{ marginRight: '5vh', marginLeft: '5vh', fontSize: 8  }}>@BrendanFrisby2022</Typography>
     <Select variant="outlined"
       style={{
         width: 100,
