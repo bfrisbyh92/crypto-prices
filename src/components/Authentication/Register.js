@@ -1,6 +1,8 @@
 import { Box, Button, TextField } from '@material-ui/core';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react'
 import { CryptoState } from '../../CryptoContext';
+import { auth } from '../../firebase'
 
 const Register = ({ handleClose }) => {
 
@@ -10,16 +12,73 @@ const Register = ({ handleClose }) => {
 
   const { setAlert } = CryptoState()
 
-  const handleSubmit = () => {
-      if(password !== confirmPassword) {
-        setAlert({
-          open: true,
-          message: "Passwords do not match",
-          type: "error",
-        })
-        return;
-      }
-  }
+const handleSubmit = async () => {
+
+    if (password !== confirmPassword) {
+      setAlert({
+        open: true,
+        message: "Passwords do not match",
+        type: "error",
+      });
+      return;
+    }
+
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      setAlert({
+        open: true,
+        message: `Sign Up Successful. Welcome ${result.user.email}`,
+        type: "success",
+      });
+
+        console.log('result:', result)
+        handleClose();
+    } 
+
+    catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+      return;
+    }
+  };
+
+  // const handleSubmit = async() => {
+  //     if(password !== confirmPassword) {
+  //       setAlert({
+  //         open: true,
+  //         message: "Passwords do not match",
+  //         type: "error",
+  //       })
+  //       return;
+  //     }
+  //     try {
+  //       const result = await createUserWithEmailAndPassword(
+  //         auth, email, password,
+  //       )
+  //       console.log(result)
+  //         setAlert({
+  //           open: true,
+  //           message: `Register Successful. Welcome to CryptoCasa ${ result.user.email }`,
+  //           type: "success",
+  //         });
+
+  //       handleClose();
+        
+  //     } catch(err) {
+  //         setAlert({
+  //           open: true,
+  //           message: err.message,
+  //           type: "error",
+  //         })
+  //     }
+  // }
 
   return (
     <Box
