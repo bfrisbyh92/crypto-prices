@@ -7,6 +7,7 @@ let bannerBackground = require('../../Assets/banner2.jpeg')
 const useStyles = makeStyles(() => ({
         banner: {
             backgroundImage: `url(${bannerBackground})`,
+            // ^^^ Stopped showing up at somepoint during build. Come back to fix this
         },
         bannerContent: {
             height: 400,
@@ -14,6 +15,7 @@ const useStyles = makeStyles(() => ({
             flexDirection: "column",
             paddingTop: 25,
             justifyContent: "space-around",
+            // backgroundImage: `url(${bannerBackground})`,
         },
         tagline: {
             display: "flex",
