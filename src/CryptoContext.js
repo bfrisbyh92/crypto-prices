@@ -9,6 +9,7 @@ const CryptoContext = ({ children }) => {
   const [symbol, setSymbol] = useState("USD");
   const [loading, setLoading] = useState(false);
   const [coins, setCoins] = useState([]);
+  const [user, setUser] = useState(null);
 
   const fetchCoins = async () => {
     setLoading(true);
