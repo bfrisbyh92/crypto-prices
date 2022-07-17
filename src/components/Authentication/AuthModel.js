@@ -77,7 +77,7 @@ export default function AuthModal() {
                     <Tabs
                         value={ value }
                         onChange={ handleChange }
-                        variant="fullwidth"
+                        variant="fullWidth"
                         style={{ borderRadius: 10 }}
                     >
                         <Tab label="Login" />
