@@ -8,6 +8,7 @@ import { auth, db } from "../../firebase";
 import { numberWithCommas } from "../CoinsTable";
 import { AiFillDelete } from "react-icons/ai";
 import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router";
 
 const useStyles = makeStyles({
   container: {
@@ -71,6 +72,8 @@ export default function UserSidebar() {
     right: false,
   });
   const { user, setAlert, watchlist, coins, symbol } = CryptoState();
+  
+  const navigate = useNavigate();
 
   console.log(`watchlist: ${watchlist}, coins: ${coins}`);
 
@@ -162,7 +165,32 @@ export default function UserSidebar() {
                   <span style={{ fontSize: 15, textShadow: "0 0 5px black" }}>
                     Watchlist
                   </span>
+            {coins.map((coin, key) => {
+              // console.log(coin)
+              if(watchlist.includes(coin.id))
+                return (
+                  <div className={classes.coin}>
+                    <span onClick={() => {
+                        navigate(`/coins/${coin.id}`, { replace: true } )
+                      }}
+                      >
+                      {coin.name}
+                      </span>
+                    <span syle={{ display: "flex", gap: 8}}>
+                      { symbol }<br></br>
+                      { numberWithCommas(coin.current_price.toFixed(2))}
+                      <AiFillDelete 
+                        style={{ cursor: "pointer" }}
+                        fontSize="16"
+                        onClick={() => removeFromWatchlist(coin)}
+                      />
+                    </span>
+                  </div>
+                );
+            })}
+
                   {/* {coins.map((coin) => {
+                      console.log(`coin: ${coin}`)
                     if (watchlist.includes(coin?.id))
                       return (
                         <div className={classes.coin}>

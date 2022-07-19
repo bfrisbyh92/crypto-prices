@@ -2,28 +2,31 @@ import { Container, makeStyles, Typography } from '@material-ui/core';
 import React from 'react'
 import Carousel from './Carousel';
 
-let bannerBackground = require('../../Assets/banner2.jpeg')
+// let bannerBackground = require('../../Assets/banner2.jpeg')
 
-const useStyles = makeStyles(() => ({
-        banner: {
-            backgroundImage: `url(${bannerBackground})`,
-            // ^^^ Stopped showing up at somepoint during build. Come back to fix this
-        },
-        bannerContent: {
-            height: 400,
-            display: "flex",
-            flexDirection: "column",
-            paddingTop: 25,
-            justifyContent: "space-around",
-            // backgroundImage: `url(${bannerBackground})`,
-        },
-        tagline: {
-            display: "flex",
-            height: "40%",
-            flexDirection: "column",
-            justifyContent: "center",
-            textAlign: "center",
-        },
+const useStyles = makeStyles((theme) => ({
+  banner: {
+    backgroundImage: "url(./banner2.jpg)",
+  },
+  bannerContent: {
+    height: 400,
+    display: "flex",
+    flexDirection: "column",
+    paddingTop: 25,
+    justifyContent: "space-around",
+  },
+  tagline: {
+    display: "flex",
+    height: "40%",
+    flexDirection: "column",
+    justifyContent: "center",
+    textAlign: "center",
+  },
+  carousel: {
+    height: "50%",
+    display: "flex",
+    alignItems: "center",
+  },
 }));
 
 const Banner = () => {
@@ -45,6 +48,7 @@ const Banner = () => {
             >
                 Coin Hub
             </Typography>
+                      <Typography style={{ fontSize: 8  }}>@BrendanFrisby2022</Typography>
                 <Typography
                     variant='subtitle2'
                     style={{
@@ -77,4 +81,4 @@ const Banner = () => {
   )
 }
 
-export default Banner
+export default Banner;

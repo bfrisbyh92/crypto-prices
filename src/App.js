@@ -2,6 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
+import WatchlistPage from './pages/WatchlistPage'
 import CoinPage from './pages/CoinPage'
 import { makeStyles } from '@material-ui/styles'
 import Alert from './components/Alert'
@@ -24,6 +25,7 @@ const classes = useStyles();
     <Routes>
         <Route exact path='/' element={ <HomePage /> }  />
         <Route path='/coins/:id' element={ <CoinPage/> }  />
+        <Route path='/watchlist' element={ <WatchlistPage /> }  />
      </Routes>
         <Alert />
     </div>

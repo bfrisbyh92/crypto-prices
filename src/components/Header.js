@@ -47,7 +47,7 @@ export const Header = () => {
           className={classes.title}>
             Coin Hub
           </Typography>
-          <Typography style={{ marginRight: '5vh', marginLeft: '5vh', fontSize: 8  }}>@BrendanFrisby2022</Typography>
+      {user ? <UserSidebar /> : <AuthModel />}
     <Select variant="outlined"
       style={{
         width: 100,
@@ -60,7 +60,6 @@ export const Header = () => {
       <MenuItem value={"USD"}>USD</MenuItem>
       <MenuItem value={"ETH"}>ETH</MenuItem>
     </Select>
-      {user ? <UserSidebar /> : <AuthModel />}
         </Toolbar>
       </Container>
     </AppBar>
