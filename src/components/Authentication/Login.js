@@ -11,8 +11,8 @@ const Login = ({ handleClose }) => {
 
 const { setAlert } = CryptoState();
 
-  const handleSubmit = async() => {
-    // event.preventDefault();
+  const handleSubmit = async(event) => {
+    event.preventDefault()
     if(!email || !password) {
       setAlert({
         open: true,
@@ -26,7 +26,7 @@ const { setAlert } = CryptoState();
 
       setAlert({
         open: true,
-        message: `Sign Up Successful. Welcome ${result.user.email}`,
+        message: `Login Successful. Welcome ${result.user.email}`,
         type: "success",
       });
 
@@ -74,6 +74,7 @@ const { setAlert } = CryptoState();
         >
           Submit
         </Button>
+        {/* ^^^ Note to come back here. Change button to be based off state. Show Login if no user, Logout if user is already logged in */}
     </Box>
   )
 }

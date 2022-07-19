@@ -43,7 +43,7 @@ const Banner = () => {
                     fontSize: "10vh",
                 }}
             >
-                Crypto Hunter
+                Coin Hub
             </Typography>
                 <Typography
                     variant='subtitle2'
@@ -52,23 +52,23 @@ const Banner = () => {
                         textTransform: 'capitalize',
                         fontFamily: 'Montserrat',
                         marginBottom: 10,
-                        fontSize: "2vw",
+                        fontSize: "3vw",
                     }}
                 >
             Get all the Info regarding your favorite Crypto
                 </Typography>
-
+                    
                 <Typography
                     variant='subtitle2'
                     style={{
                         color: "gold",
                         textTransform: 'capitalize',
-                        fontFamily: 'Montserrat',
+                        fontFamily: 'Edu VIC WA NT Beginner',
                         marginBottom: 10,
-                        fontSize: "2vw",
+                        fontSize: "4vw",
                     }}
                 >
-                Top 10
+                    Top 10
                 </Typography>
         </div>
             <Carousel />

@@ -3,6 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CryptoState } from "../CryptoContext";
 import AuthModel from "./Authentication/AuthModel";
+import UserSidebar from "./Authentication/UserSidebar";
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -20,7 +21,7 @@ export const Header = () => {
   // useNavigate is new useHistory
   const classes = useStyles();
 
-  const { currency, setCurrency } = CryptoState();
+  const { user, currency, setCurrency } = CryptoState();
 
   const darkTheme = createTheme({
     palette: {
@@ -31,7 +32,7 @@ export const Header = () => {
     },
   })
 
-  console.log(currency)
+  console.log(`currency: ${currency}`)
 
   return (
 
@@ -44,7 +45,7 @@ export const Header = () => {
             variant="h6" 
             onClick={() => navigate("/", { replace: true })}
           className={classes.title}>
-            Crypto Home
+            Coin Hub
           </Typography>
           <Typography style={{ marginRight: '5vh', marginLeft: '5vh', fontSize: 8  }}>@BrendanFrisby2022</Typography>
     <Select variant="outlined"
@@ -59,7 +60,7 @@ export const Header = () => {
       <MenuItem value={"USD"}>USD</MenuItem>
       <MenuItem value={"ETH"}>ETH</MenuItem>
     </Select>
-      <AuthModel />
+      {user ? <UserSidebar /> : <AuthModel />}
         </Toolbar>
       </Container>
     </AppBar>
