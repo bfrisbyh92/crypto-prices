@@ -45,7 +45,7 @@ export const CoinInfo = ({ coin }) => {
     setHistoricalData(data.prices);
   };
 
-  console.log(coin);
+  console.log(`coinInfo.js coin: ${ coin }`);
 
   useEffect(() => {
     fetchHistoricalData();
