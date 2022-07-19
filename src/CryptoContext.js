@@ -13,6 +13,7 @@ const CryptoContext = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [coins, setCoins] = useState([]);
   const [user, setUser] = useState(null);
+  const [watchlist, setWatchlist] = useState([]);
 
   const [alert, setAlert] = useState({
       open: false,
@@ -42,7 +43,7 @@ const CryptoContext = ({ children }) => {
         else if (currency === "ETH") setSymbol("ETH")
     },[currency])
 
-  return  <Crypto.Provider value={{ currency, symbol, setCurrency, coins, loading, fetchCoins, alert, setAlert, user }}>
+  return  <Crypto.Provider value={{ watchlist, currency, symbol, setCurrency, coins, loading, fetchCoins, alert, setAlert, user }}>
             { children }
         </Crypto.Provider>
 }
