@@ -49,8 +49,7 @@ const CoinPage = () => {
     heading: {
       fontWeight: "bold",
       marginBottom: 20,
-      fontFamily: "Edu VIC WA NT Beginner",
-      borderBottom: "1px solid grey",
+      fontFamily: "Montserrat",
     },
     description: {
       width: "100%",
@@ -67,9 +66,6 @@ const CoinPage = () => {
       width: "100%",
       [theme.breakpoints.down("md")]: {
         display: "flex",
-        justifyContent: "space-around",
-      },
-      [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
         alignItems: "center",
       },
@@ -98,6 +94,29 @@ const CoinPage = () => {
     }
     catch(err) {
     
+    }
+  };
+
+  const removeFromWatchlist = async () => {
+    const coinRef = doc(db, "watchlist", user.uid);
+    try {
+      await setDoc(
+        coinRef,
+        { coins: watchlist.filter((watch) => watch !== coin?.id) },
+        { merge: true }
+      );
+
+      setAlert({
+        open: true,
+        message: `${coin.name} Removed from the Watchlist !`,
+        type: "success",
+      });
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
     }
   };
 
@@ -181,9 +200,9 @@ const CoinPage = () => {
             style={{
               width: "100%",
               height: 40,
-              backgroundColor: "#EEBC1D",
+              backgroundColor: inWatchList ? "#ff0000" : "#EEBC1D",
             }}
-            onClick={ addToWatchList }
+            onClick={ inWatchList ? removeFromWatchlist : addToWatchList }
           >
             {inWatchList ? "Remove from Watchlist" : "Add to Watchlist"}
           </Button>
