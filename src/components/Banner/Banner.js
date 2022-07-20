@@ -44,6 +44,7 @@ const Banner = () => {
                     marginBottom: 15,
                     fontFamily: 'Edu VIC WA NT Beginner',
                     fontSize: "10vh",
+                    color: "#cccccc",
                 }}
             >
                 Coin Hub
@@ -65,7 +66,7 @@ const Banner = () => {
                 <Typography
                     variant='subtitle2'
                     style={{
-                        color: "gold",
+                        color: "#ccbc2f",
                         textTransform: 'capitalize',
                         fontFamily: 'Edu VIC WA NT Beginner',
                         marginBottom: 10,

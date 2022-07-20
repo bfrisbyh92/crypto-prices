@@ -6,9 +6,10 @@ import { CryptoState } from "../../CryptoContext";
 import { signOut } from "firebase/auth";
 import { auth, db } from "../../firebase";
 import { numberWithCommas } from "../CoinsTable";
-import { AiFillDelete } from "react-icons/ai";
+import { AiFillDelete, AiFillCloseCircle } from "react-icons/ai";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router";
+import { TailSpin } from "react-loader-spinner";
 
 const useStyles = makeStyles({
   container: {
@@ -30,14 +31,14 @@ const useStyles = makeStyles({
   logout: {
     height: "8%",
     width: "100%",
-    backgroundColor: "#EEBC1D",
+    backgroundColor: "#81d4f9",
     marginTop: 20,
   },
   picture: {
     width: 200,
     height: 200,
     cursor: "pointer",
-    backgroundColor: "#EEBC1D",
+    backgroundColor: "#81d4f9",
     objectFit: "contain",
   },
   watchlist: {
@@ -61,7 +62,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#EEBC1D",
+    backgroundColor: "#81d4f9",
     boxShadow: "0 0 3px black",
   },
 });
@@ -71,6 +72,7 @@ export default function UserSidebar() {
   const [state, setState] = React.useState({
     right: false,
   });
+
   const { user, setAlert, watchlist, coins, symbol } = CryptoState();
   
   const navigate = useNavigate();
@@ -99,6 +101,7 @@ export default function UserSidebar() {
     toggleDrawer();
   };
 
+
   const removeFromWatchlist = async (coin) => {
     const coinRef = doc(db, "watchlist", user.uid);
     try {
@@ -124,7 +127,7 @@ export default function UserSidebar() {
 
   return (
     <div>
-      {["right"].map((anchor) => (
+      {["right"].map((anchor, key) => (
         <React.Fragment key={anchor}>
           <Avatar
             onClick={toggleDrawer(anchor, true)}
@@ -133,7 +136,7 @@ export default function UserSidebar() {
               width: 38,
               marginLeft: 15,
               cursor: "pointer",
-              backgroundColor: "#EEBC1D",
+              backgroundColor: "#81d4f9",
             }}
             src={user.photoURL}
             alt={user.displayName || user.email}
@@ -159,6 +162,9 @@ export default function UserSidebar() {
                     wordWrap: "break-word",
                   }}
                 >
+          <Button  onClick={toggleDrawer(anchor, false)} >
+            <AiFillCloseCircle size={25} style={{ cursor: "pointer" }}/>
+          </Button>
                   {user.displayName || user.email}
                 </span>
                 <div className={classes.watchlist}>
@@ -178,16 +184,17 @@ export default function UserSidebar() {
                       </span>
                     <span syle={{ display: "flex", gap: 8}}>
                       { symbol }<br></br>
-                      { numberWithCommas(coin.current_price.toFixed(2))}
+                      ${ numberWithCommas(coin.current_price.toFixed(2))}
                       <AiFillDelete 
-                        style={{ cursor: "pointer" }}
-                        fontSize="16"
+                        style={{ cursor: "pointer", color: 'red' }}
+                        fontSize="22"
                         onClick={() => removeFromWatchlist(coin)}
                       />
                     </span>
                   </div>
                 );
-            })}
+                else return;
+            })};
 
                   {/* {coins.map((coin) => {
                       console.log(`coin: ${coin}`)
