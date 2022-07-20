@@ -40,7 +40,7 @@ export default function CoinsTable() {
     },
     pagination: {
       "& .MuiPaginationItem-root": {
-        color: "gold",
+        color: "#81d4f9",
       },
     },
   });
@@ -56,15 +56,6 @@ export default function CoinsTable() {
       type: "dark",
     },
   });
-
-  // const fetchCoins = async () => {
-  //   setLoading(true);
-  //   const { data } = await axios.get(CoinList(currency));
-  //   console.log(data);
-
-  //   setCoins(data);
-  //   setLoading(false);
-  // };
 
   useEffect(() => {
     fetchCoins();
@@ -92,14 +83,14 @@ export default function CoinsTable() {
           label="Search For a Crypto Currency.."
           variant="outlined"
           style={{ marginBottom: 20, width: "100%" }}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value.toLowerCase())}
         />
         <TableContainer component={Paper}>
           {loading ? (
-            <LinearProgress style={{ backgroundColor: "gold" }} />
+            <LinearProgress style={{ backgroundColor: "#81d4f9" }} />
           ) : (
             <Table aria-label="simple table">
-              <TableHead style={{ backgroundColor: "#EEBC1D" }}>
+              <TableHead style={{ backgroundColor: "#81d4f9" }}>
                 <TableRow>
                   {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                     <TableCell

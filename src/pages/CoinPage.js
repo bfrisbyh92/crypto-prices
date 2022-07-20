@@ -122,7 +122,7 @@ const CoinPage = () => {
 
   const classes = useStyles();
 
-  if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
+  if (!coin) return <LinearProgress style={{ backgroundColor: "#81d4f9" }} />;
 
   return (
     <div className={classes.container}>
@@ -131,7 +131,7 @@ const CoinPage = () => {
           src={coin?.image.large}
           alt={coin?.name}
           height="200"
-          style={{ marginBottom: 20, borderRadius: 20, border: "1px dashed gold"}}
+          style={{ marginBottom: 20, borderRadius: 20, border: "1px dashed rgba(204,204,204,1) "}}
         />
         <Typography variant="h3" className={classes.heading}>
           {coin?.name}
@@ -200,7 +200,7 @@ const CoinPage = () => {
             style={{
               width: "100%",
               height: 40,
-              backgroundColor: inWatchList ? "#ff0000" : "#EEBC1D",
+              backgroundColor: inWatchList ? "#ff0000" : "#81d4f9",
             }}
             onClick={ inWatchList ? removeFromWatchlist : addToWatchList }
           >

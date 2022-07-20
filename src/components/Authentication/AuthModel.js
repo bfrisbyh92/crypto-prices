@@ -89,7 +89,7 @@ export default function AuthModal() {
             width: 85,
             height: 40,
             marginLeft: 15,
-            backgroundColor: "#EEBC1D",  
+            backgroundColor: "#81d4f9",  
         }}
             onClick={handleOpen}
         >
@@ -121,14 +121,14 @@ export default function AuthModal() {
                     >
                         <Tab label="Login" />
                         <Tab label="Register" />
-                        <Tab label="Other" />
+                        {/* <Tab label="Other" /> */}
                         {/* ^^^ Add signInWithPhoneNumber and other sign in methods */}
                     </Tabs>
                 </AppBar>
 
                 { value === 0 && <Login handleClose={handleClose} /> } 
                 { value === 1 && <Register handleClose={handleClose} /> }
-                { value === 2 && <Other handleClose={handleClose} /> }
+                {/* { value === 2 && <Other handleClose={handleClose} /> } */}
                 <Box className={classes.google}>
                     <span>OR</span>
                       <GoogleButton
