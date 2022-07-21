@@ -1,0 +1,19 @@
+*Brendan Frisby*
+
+https://seirfx-125.notion.site/React-Router-Version-6-fd8752357f934b609dfbadb54a07868b
+## First Attempt just messing around with ^^^ that attached notion.
+## June 10th 2022
+https://github.com/bfrisbyh92/Crypto-Tracker
+
+## Second crypto/web3 project based off a youtube tutorial with a Metamask connection and Solidity Smart Contract. 
+## https://www.youtube.com/watch?v=Wn_Kb3MR_cU&t=5518s
+## My build ended June 19th for this one.
+https://github.com/bfrisbyh92/Kryptlow
+https://kryptlow.netlify.app/
+
+## Third Crypto React App
+## Deployed July 18th but I am going to continue to add to it. 
+## Going to add tipping features for any browser that has a build in wallet similiar to Kryptlow above.
+## Going to build out a Watchlist page just like it currently shows in the userSideBar
+https://coinhub7.netlify.app/
+https://github.com/bfrisbyh92/crypto-prices
